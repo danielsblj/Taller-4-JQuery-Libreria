@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mi primer formulario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./index.js"></script>
+  </head>
+  <body><br>
+    <div class="container">
+    <div class="row justify-content-start">
+    <form class="col g-3 myFormulario" id="inscription-form" novalidate>
+      <div class="mb-3">
+        <select name="documento" id="documento" class="form-select" required>
+          <option value="" selected> Tipo de Documento </option>
+          <option value="1">Cedula de Ciudadania</option>
+          <option value="2">Tarjeta de identidad</option>
+        </select>
+        <div id="documentoError" class="invalid-feedback">
+        </div>
+      </div>
+      <div class="mb-3">
+          <input class="form-control" type="text" placeholder="Numero de identificación" id="identification" name="identificacion" onclick="console.log('hola')" />
+          <div id="identificacionError" class="invalid-feedback">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="input-group has-validation">
+        <input
+          type="text"
+          placeholder="Ingrese su nombre"
+          class="form-control"
+          id="name"
+          name="nombre"
+        />
+        <div id="userNameError" class="invalid-feedback">
+        </div>
+
+
+       </div>
+      </div>
+      <div class="mb-3">
+        <div class="input-group has-validation">
+        <input class="form-control"
+        type="text" 
+        placeholder="Ingrese su apellido" 
+        id="lastName" 
+        name="apellido" />
+          <div id="userLastNameError" 
+          class="invalid-feedback">
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+         <input
+           class="form-control"
+           type="text" 
+           placeholder="Ingrese su correo" 
+           id="correo" 
+           name= "correo"
+          />
+          <div
+            id="correoError"
+            class="invalid-feedback"
+          >
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <p class="fs-4">Seleccione su Genero</p>
+        <div class="mb-3">
+          <div class="form-check">
+           <input type="radio" class="form-check-input" id="masculino" name="radio-stacked">
+           <label  class="fs-5" class="form-check-label" for="M">Masculino</label>
+          </div>
+           <div class="mb-3">
+          <input type="radio" class="form-check-input" id="femenino" name="radio-stacked">
+          <label  class="fs-5" class="form-check-label" for="F">Femenino</label>
+           <div class="error hidden" id="genderError">Seleccione un genero</div>
+          </div>
+       </div>
+      </div> 
+      <div class="mb-3">
+        
+        <input class="form-control" 
+        type="text" 
+        placeholder="Ingrese su profesión" 
+        id="profesion"
+        name= profesion />
+         <div id="profesionError" class="invalid-feedback">
+          </div>
+      </div>
+      <div class="mb-3" id="ejemploId">
+        <label
+          for="texto1" 
+          class="fs-4"
+          id="name"
+        >Esriba su perfil</label><br>
+         <textarea
+          class="form-control"
+          perfil="texto2" 
+          id="perfil" 
+          name="perfil"
+        ></textarea>
+         <div id="perfilError" class="invalid-feedback">
+        </div>
+      </div>
+      <div class="mb-3">
+
+        <label for="texto3" class="fs-4">Seleccione su Hobbie/Hobbies</label><br>
+        <label class="fs-5"> 
+          <input type="checkbox" class="hobbieCB" value="caminar" />Caminar
+        </label><br>
+
+        <label class="fs-5"> 
+          <input type="checkbox" class="hobbieCB fs-5" value="ejercicio" />Ejercicio
+        </label><br>
+
+        <label class="fs-5"> 
+        <input type="checkbox" class="hobbieCB fs-5" value="ciclismo" />Ciclismo</label><br>
+
+        <label class="fs-5"> 
+        <input type="checkbox" class="hobbieCB fs-5" value="futbol" />Futbol</label><br>
+      
+        <label class="fs-5">
+        <input type="checkbox" class="fs-5 hobbieCB" value="tejo" />Tejo</label><br><br>
+
+        <div id="hobbiesError" class="error hidden">
+          Debes seleccionar al menos 1 hobbie
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="texto4" class="fs-4">¿Tiene experencias laborales?</label><br>      
+        <label class="fs-5">
+          <input
+            type="checkbox"
+            id="tieneExperiencia"
+            value="si"
+          />
+          Si
+        </label>
+        <div class="invisible" id="contenedorExperiencias">
+          <textarea
+          class="form-control"
+          perfil="texto2" 
+          id="experiencias" 
+          name="experiencias"
+          ></textarea>
+           <div
+            id="experienciaError"
+            class="invalid-feedback"
+           ></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button
+          class="btn btn-success"
+          type="submit"
+          onclick="validateMyCode(event)"
+          id="submitBttn"
+        >
+          Enviar
+        </button> 
+      </div>
+
+      <div>
+        <button id="cancelar" type="reset" value="Borrar" class="btn btn-primary"> 
+          Limpiar
+       </button>
+      </div><br>
+    </form>
+     <div class="card text-dark bg-info mb-3 invisible" id="cardInformacion" style="max-width: 100rem;">
+      <div class="fs-1 card-header">Formulario del candidato</div>
+        <div class="card-body">
+          <h5 class="fs-3 card-title">Datos del candidato</h5>
+          <p class="fs-6 card-text" id="textoTipoDocumento"></p>
+          <p class="fs-6 card-text" id="textoDocumento"></p>
+          <p class="fs-6 card-text" id="textoNombre"></p>
+          <p class="fs-6 card-text" id="textoApellido"></p>
+          <p class="fs-6 card-text" id="textoCorreo"></p>
+          <p class="fs-6 card-text" id="textoGenero"></p>
+          <p class="fs-6 card-text" id="textoProfesion"></p>
+          <p class="fs-6 card-text" id="textoHobbie"></p>
+          <p class="fs-6 card-text" id="textoPerfil"></p>
+          <p class="fs-6 card-text" id="textoExperiencias"></p>
+        </div>
+      </div>
+     </div>
+    </div>
+  </body>
+</html>

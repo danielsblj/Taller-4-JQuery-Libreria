@@ -1,0 +1,13 @@
+.hidden {
+	visibility: hidden;
+}
+.error {
+	color: #dc3545
+}
+.invisible {
+	display: none;
+}
+
+body {
+	background: skyblue;
+}
